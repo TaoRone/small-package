@@ -4,7 +4,7 @@ name: Sync packages
 on:
   push:
     paths:
-      - '.github/workflows/TaoR.yml'
+      - '.github/workflows/small8.yml'
       - 'diy/**'
   schedule:
     - cron: 0 */12 * * *
