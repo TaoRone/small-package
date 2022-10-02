@@ -9,10 +9,10 @@ include $(TOPDIR)/rules.mk
 include $(INCLUDE_DIR)/kernel.mk
 
 PKG_NAME:=natflow
-PKG_VERSION:=20220929
+PKG_VERSION:=20221013
 
 PKG_SOURCE_URL:=https://codeload.github.com/ptpt52/natflow/tar.gz/$(PKG_VERSION)?
-PKG_HASH:=a05de6e25910efe5caf6a6ef2794fe3b68892561443dd79c863055d73c13107c
+PKG_HASH:=fd9010e21ba6536c37d061e9f4fcc7bdb542f537e5e0e5aaa1a1e8914afc9b9e
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 
 PKG_MAINTAINER:=Chen Minqiang <ptpt52@gmail.com>
@@ -69,6 +69,8 @@ define Package/natflow-boot/install
 	$(INSTALL_BIN) ./files/natflow-boot.init $(1)/etc/init.d/natflow-boot
 	$(INSTALL_DIR) $(1)/etc/hotplug.d/iface
 	$(INSTALL_DATA) ./files/21-natflow-boot.hotplug $(1)/etc/hotplug.d/iface/21-natflow-boot
+	$(INSTALL_DIR) $(1)/lib/preinit
+	$(INSTALL_DATA) ./files/natflow-boot.preinit $(1)/lib/preinit/95_natflow-boot
 endef
 
 define Package/natflow-auth
