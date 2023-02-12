@@ -4,7 +4,7 @@ name: Sync packages
 on:
   push:
     paths:
-      - '.github/workflows/small8.yml'
+      - '.github/workflows/TaoR.yml'
       - 'diy/**'
   schedule:
     - cron: 0 */12 * * *
@@ -47,7 +47,7 @@ jobs:
 
     - name: Upload small-package
       env: 
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        ACCESS_TOKEN: ${{secrets.ACCESS_TOKEN}}
       run: |
         [ -e $GITHUB_WORKSPACE/LICENSE ] && cp $GITHUB_WORKSPACE/LICENSE $GITHUB_WORKSPACE/${{matrix.target}}
         [ -e $GITHUB_WORKSPACE/README.md ] && cp $GITHUB_WORKSPACE/README.md $GITHUB_WORKSPACE/${{matrix.target}}
